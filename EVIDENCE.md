@@ -818,9 +818,11 @@ new upload attempt.
   the repository now tracks **116 files**. Build caches, Gradle/Pub caches,
   `dist/`, `logs/`, board backups and local paths were excluded; `git status`
   was clean at each push.
-- Remote check: `git ls-remote --heads origin` and the GitHub commits API both
-  report `9fbb88c7fb292411341ef3ab27a860b49b00e5c0` on `refs/heads/main`, with
-  153 tree entries and no tracked build/cache/log path.
+- Remote check: after every push, `git ls-remote --heads origin` returned exactly
+  the local `HEAD`. The publication state recorded here was verified at
+  `9fbb88c7fb292411341ef3ab27a860b49b00e5c0` on `refs/heads/main` (153 tree
+  entries, no tracked build/cache/log path); evidence-only commits may follow
+  this record without changing that content.
 - Secret scan: the approved Gitleaks 8.30.1 launcher scanned the exact exported
   snapshot, **0 findings, 0 errors, 75/75 selected text files**. Scope is
   working-tree text only, decode depth 2; no Git history, archives or binaries.
