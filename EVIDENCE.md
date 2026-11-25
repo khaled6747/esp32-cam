@@ -810,14 +810,17 @@ The source snapshot was committed and pushed to
 `https://github.com/khaled6747/esp32-cam` without a board backup and without a
 new upload attempt.
 
-- Local repository: `esp32cam_smart_room`, branch `main`, root commit
-  `313287be97adfaf4f952bb3fb1e2999d841bd6d4`.
-- Published content: **115 files, 12,837 insertions, 0.72 MB**. Build caches,
-  Gradle/Pub caches, `dist/`, `logs/`, board backups and local paths were
-  excluded; `git status` was clean after the commit.
+- Local repository: `esp32cam_smart_room`, branch `main`. Commits: root
+  `313287be97adfaf4f952bb3fb1e2999d841bd6d4` (source snapshot), then
+  `f7b6f89d05e5e9fc9f87c7dfaaecb5b08e7b455b` (known-issues docs) and
+  `9fbb88c7fb292411341ef3ab27a860b49b00e5c0` (progress ledger).
+- Published content: first commit **115 files, 12,837 insertions, 0.72 MB**;
+  the repository now tracks **116 files**. Build caches, Gradle/Pub caches,
+  `dist/`, `logs/`, board backups and local paths were excluded; `git status`
+  was clean at each push.
 - Remote check: `git ls-remote --heads origin` and the GitHub commits API both
-  report `313287be97adfaf4f952bb3fb1e2999d841bd6d4` on `refs/heads/main`; the
-  API reports 115 changed files and 152 tree entries.
+  report `9fbb88c7fb292411341ef3ab27a860b49b00e5c0` on `refs/heads/main`, with
+  153 tree entries and no tracked build/cache/log path.
 - Secret scan: the approved Gitleaks 8.30.1 launcher scanned the exact exported
   snapshot, **0 findings, 0 errors, 75/75 selected text files**. Scope is
   working-tree text only, decode depth 2; no Git history, archives or binaries.
