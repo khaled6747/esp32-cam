@@ -1,0 +1,30 @@
+{
+  "updated_at": "2026-11-24T18:53:12.288Z",
+  "activity": "اكتملت الدفعة البرمجية: 91 Python، 47 Flutter، 18 عقد، 17 JVM و26+10+10 C++ ناجحة؛ compile-only وبصمات التسليم نجحا. ملف التشغيل flash_esp32cam.cmd جاهز، والأصل والنسخة السابقة محفوظان. لا serial أو فلاش أو اعتماد كهربائي؛ المخارج معطلة.",
+  "batch": {
+    "title": "الدفعة الحالية: مطابقة المتطلبات وحماية الهاردوير ومسار التشغيل",
+    "tasks": [
+      {"id":"requirements","title":"مطابقة المتطلبات وتصحيح مخاطر التوصيل","state":"verified","evidence":"مراجعة المصدر مقابل docs/requirements.md وhardware.md: IR حالات كاملة، مشاهد، Sleep صريح، BLE قابل للرصد ورؤية اللاب؛ توثيق قصر L-N وGPIO16/12 ومقاومة IR المطلوبة، دون اعتماد كهربائي."},
+      {"id":"board-guard","title":"حماية compile للأطراف والدوائر غير المراجعة","state":"verified","evidence":"smart_room_safety_green_20261124.txt: 11 board-config ناجح مع mutant GPIO16 المكتشف؛ المصدر الأصلي لا يُعدل في fixtures. يرفض PSRAM/boot12/الكاميرا/التداخل/غياب المراجعة؛ المخارج=false."},
+      {"id":"launcher","title":"ملف تشغيل Windows واضح ومحمي","state":"verified","evidence":"smart_room_safety_green_20261124.txt: 17 helper/launcher ناجح بعد red الفعلي؛ CMD اختبر في مسار عربي به spaces/& مع sibling خامل، وإلغاء helper الحقيقي قبل الأدوات. لا serial/Arduino في هذه fixtures."},
+      {"id":"verification","title":"اختبارات وبناء وتسليم غير مفلّش","state":"verified","evidence":"EVIDENCE.md: 91/91 Python، 47 Flutter، 18 عقد/237 Dart، 17 JVM و46 C++؛ compile-only exit 0. smart_room_final_delivery_verification_20261124.json: تطابق 5 آثار/2 helper/3 source/4 أرشيف/4 أصول؛ README وmanifest محدثان، دون فلاش."}
+    ]
+  },
+  "milestones": [
+    {"id":"software-previous","title":"النسخة البرمجية السابقة — منفصلة عن الدفعة الحالية","state":"verified","evidence":"8 مهام برنامج وhelper في السجل السابق progress/history/software-20261124.json؛ 47 Flutter و17 Android و18 عقد و26+10+10 C++؛ لا دليل هاردوير."},
+    {"id": "hardware", "title": "اعتماد أطراف وجهود الوحدات والتوصيل", "state": "blocked", "evidence": "الوصف الحالي يتضمن قصر L-N وGPIO16 للـPSRAM وGPIO12 strap وIR بلا مقاومة تيار مذكورة؛ يلزم كهربائي للـmains وصور/قياسات منخفضة الجهد قبل التمكين."},
+    {"id": "flash", "title": "تنفيذ فلاش فعلي للبورد", "state": "blocked", "evidence": "COM13 ظهر في -CheckOnly، دون فتح المنفذ أو فحص MAC. compile-only ناجح لكن upload لم يُنفّذ؛ يلزم اعتماد الهاردوير والعزل ثم هوية وbackup وتأكيد FLASH صريح."},
+    {"id": "ble-phone", "title": "اختبار اقتران وملكية واتصال هاتف واحد فعليًا", "state": "blocked", "evidence": "ENABLE_OLED=false يمنع provisioning الحالي؛ يلزم OLED مُراجع وفيرموير مفلّش وهاتف Android. لم يُنفّذ أي اقتران أو اختبار راديو."},
+    {"id": "ir-ac", "title": "تعلم وإعادة إرسال إشارات التكييف الحقيقي", "state": "blocked", "evidence": "لم تُلتقط موجة ريموت حقيقي ولم يُقس carrier أو المدى أو وصول الجهاز للحالة."},
+    {"id": "vision-scene", "title": "تقييم عدّ الأشخاص في الغرفة الحقيقية", "state": "blocked", "evidence": "اختبارات البرنامج وصورة فارغة عامة ليست قياس دقة في مشاهد الغرفة."}
+  ],
+  "blockers": [
+    "لا فلاش أو توصيل إنارة كهرباء عمومية قبل مراجعة الهاردوير.",
+    "الاقتران وpasskey والملكية تحتاج OLED يعمل وبورد مبرمجة وهاتفًا.",
+    "النوم وضع صريح/مؤقت، وليس استنتاجًا موثوقًا من قلة الحركة.",
+    "APK نسخة debug والفيرموير غير مفلّش؛ ليست حزمة إنتاج معتمدة.",
+    "تغطية إرشادات التبعيات جزئية: الجرد 59 Pub و305 Maven، بلا استعلام OSV جديد أو فصل كامل لحزمة runtime أو مراجعة قانونية.",
+    "توصيل COM إلى L وNO إلى N كما وصفه المستخدم يسبب قصرًا؛ لا تشغيل أو لمس للتوصيل، ويلزم كهربائي مؤهل.",
+    "GPIO16 محجوز للـPSRAM وGPIO12 قد يغير جهد الفلاش؛ خريطة المستخدم غير معتمدة، ومقاومة تيار IR غير مذكورة."
+  ]
+}

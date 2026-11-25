@@ -1,0 +1,26 @@
+{
+  "updated_at": "2026-11-24T04:58:00Z",
+  "activity": "سجل الدفعة البرمجية السابقة محفوظ دون اعتماد الهاردوير. اختبارات Python 3.12 اللاحقة فشلت بسبب غياب pyserial؛ هذا ليس تعديلًا في منطق detector. الفلاش لم يُنفذ.",
+  "batch": {
+    "title": "الدفعة السابقة: ريموت تكييف ذكي وإضاءة حسب عدد الأشخاص",
+    "tasks": [
+      {"id":"scope","title":"المعمارية وحدود التوصيل","state":"verified","evidence":"docs/architecture.md وhardware.md وadr-002؛ خريطة مشروطة، لا اعتماد للهاردوير."},
+      {"id":"rules","title":"قواعد الإشغال والنوم والتحكم اليدوي","state":"verified","evidence":"C++: 26/26؛ unknown≠zero، zero grace، debounce، leases وmillis wrap."},
+      {"id":"firmware","title":"فيرموير BLE وIR والشاشة والريلاي","state":"verified","evidence":"ESP32 core 3.3.12 huge_app: 1,306,373 program bytes و65,380 globals؛ المخارج معطلة، بلا upload."},
+      {"id":"bridge","title":"ربط رؤية اللاب بوحدة التحكم","state":"verified","evidence":"63/63 Python في السجل السابق؛ bridge --check بلا serial. تشغيل Python 3.12 لاحقًا: 5 errors لغياب pyserial، موثق في EVIDENCE.md."},
+      {"id":"app","title":"تطبيق Flutter Android","state":"verified","evidence":"47 Flutter، 17 Android JVM، Dart analyze بلا issues؛ APK a9afa88e9847966570b8c34335457cef48e8c608230b73edf1530bb9d9578098، بلا اقتران حقيقي."},
+      {"id":"integration","title":"اختبارات البروتوكول والملكية والأخطاء","state":"verified","evidence":"10 protocol و10 auth C++؛ 18 cross-language tests، 237 Dart event checks، mutant session rejected."},
+      {"id":"docs","title":"التوصيل المشروط ودليل المستخدم","state":"verified","evidence":"README وEVIDENCE وdocs/protocol.md وsecurity.md وdependency inventory؛ بوابات الأجهزة غير معتمدة."},
+      {"id":"delivery","title":"فحص وتسليم النسخة البرمجية","state":"verified","evidence":"dist APK و4 firmware binaries وmanifest/hash list؛ debug/unflashed."},
+      {"id":"flash-helper","title":"مسار فلاش محمي","state":"verified","evidence":"PS1 14,892 bytes SHA256 69238e3f51176bf6ceaf84e104f0338f8d0997891ce1ca149c1ecb698b3d2871؛ parse/compile-only/refusal فقط."}
+    ]
+  },
+  "milestones": [
+    {"id":"hardware","title":"اعتماد الهاردوير","state":"blocked","evidence":"صور وقياسات الأطراف والجهود والقطبية غير متوفرة."},
+    {"id":"flash","title":"فلاش البورد","state":"blocked","evidence":"لم ينفذ، ينتظر مراجعة الأجهزة وفصل الحمل."},
+    {"id":"ble-phone","title":"BLE فعلي","state":"blocked","evidence":"لم يختبر على Android وبورد مفلشة."},
+    {"id":"ir-ac","title":"تكييف فعلي","state":"blocked","evidence":"لم تقاس أو تتعلم موجة ريموت فعلي."},
+    {"id":"vision-scene","title":"دقة الغرفة","state":"blocked","evidence":"لم تقاس دقة العد في الغرفة."}
+  ],
+  "blockers": ["لا اعتماد لمراجعة الهاردوير ولا فلاش ولا تشغيل mains.","Python 3.12 ليس بيئة رؤية المشروع السابقة؛ تحقق من Python 3.14 الموجود بدل تثبيت عالمي."]
+}

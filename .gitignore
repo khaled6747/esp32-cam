@@ -1,0 +1,25 @@
+.pub-cache/
+.gradle-user-home/
+.ruff_cache/
+__pycache__/
+*.pyc
+*.pyo
+
+# Flutter / Android generated state
+app/.dart_tool/
+app/build/
+app/.flutter-plugins-dependencies
+app/android/local.properties
+app/android/.gradle/
+app/.idea/
+*.iml
+
+# Arduino local build cache
+firmware/**/build/
+
+# Delivery package, local logs and board backups stay outside the public repo
+dist/
+build/
+logs/
+backups/
+*.log

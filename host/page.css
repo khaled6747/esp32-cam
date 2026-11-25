@@ -1,0 +1,6 @@
+:root{color-scheme:dark;font-family:system-ui,Segoe UI,Tahoma,sans-serif;background:#101820;color:#e8eff5}
+body{margin:0}main{max-width:960px;padding:24px;margin:auto}header{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+h1{margin:0}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin:24px 0}
+.stats div{padding:20px;border:1px solid #2a414d;border-radius:16px;background:#172630}small{display:block;color:#afc6cf}
+strong{display:block;font-size:30px;color:#70ddc2;margin-top:8px}span{overflow-wrap:anywhere}img{width:100%;border-radius:16px}img[hidden]{display:none}
+p{line-height:1.8;color:#b8cad3}#error{color:#f8c17c}#connection{padding:8px 12px;background:#223d47;border-radius:20px}
