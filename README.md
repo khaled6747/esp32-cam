@@ -272,6 +272,23 @@ py -3.14 tools\progress_server.py --port 8799
    النوم/التردد، ثم وجّه الريموت الأصلي للجهاز. الحالة الكاملة تُخزَّن أو تُرفض.
 6. اربط المشاهد بعدد الأشخاص (هادئ/عادي/مزدحم) واختر حالة AC لكل مشهد.
 
+## المشاكل المعروفة على GitHub
+
+المشروع منشور على `https://github.com/khaled6747/esp32-cam`، والمشاكل المؤكدة
+مسجلة كـIssues قابلة للمتابعة:
+
+- [#1](https://github.com/khaled6747/esp32-cam/issues/1) فشل `read-mac` بـ`0x73`.
+- [#2](https://github.com/khaled6747/esp32-cam/issues/2) تعطيل OLED/IR/الريلاي
+  ومنع اقتران BLE.
+- [#3](https://github.com/khaled6747/esp32-cam/issues/3) تعارض أطراف microSD.
+- [#4](https://github.com/khaled6747/esp32-cam/issues/4) دقة عدّ الغرفة غير مقاسة.
+- [#5](https://github.com/khaled6747/esp32-cam/issues/5) سلامة التوصيل وقصر L-N.
+- [#6](https://github.com/khaled6747/esp32-cam/issues/6) PSRAM/الذاكرة/LittleFS
+  غير مقاسة.
+- [#7](https://github.com/khaled6747/esp32-cam/issues/7) تغطية التبعيات جزئية.
+
+الملخص وترتيب المعالجة في [`docs/known-issues.md`](docs/known-issues.md).
+
 ## ما هو غير مثبت
 
 هذه البنود **بوابات قبول منفصلة** وليست مكتملة بمجرد نجاح الاختبارات:

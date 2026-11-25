@@ -803,3 +803,31 @@ powershell -NoProfile -File .\flash_esp32cam.ps1 -CompileOnly
 
 Do not add `--upload`, `--allow-serial`, or a mains load without the separate
 hardware review gate.
+
+## 7. Public repository publication — 2026-11-25
+
+The source snapshot was committed and pushed to
+`https://github.com/khaled6747/esp32-cam` without a board backup and without a
+new upload attempt.
+
+- Local repository: `esp32cam_smart_room`, branch `main`, root commit
+  `313287be97adfaf4f952bb3fb1e2999d841bd6d4`.
+- Published content: **115 files, 12,837 insertions, 0.72 MB**. Build caches,
+  Gradle/Pub caches, `dist/`, `logs/`, board backups and local paths were
+  excluded; `git status` was clean after the commit.
+- Remote check: `git ls-remote --heads origin` and the GitHub commits API both
+  report `313287be97adfaf4f952bb3fb1e2999d841bd6d4` on `refs/heads/main`; the
+  API reports 115 changed files and 152 tree entries.
+- Secret scan: the approved Gitleaks 8.30.1 launcher scanned the exact exported
+  snapshot, **0 findings, 0 errors, 75/75 selected text files**. Scope is
+  working-tree text only, decode depth 2; no Git history, archives or binaries.
+  This is not proof that the content is secret-free beyond that scope.
+- Issues opened (all `open` at creation): #1 `0x73` upload failure, #2 disabled
+  OLED/IR/relay and BLE pairing, #3 microSD pin conflicts, #4 unmeasured room
+  counting accuracy, #5 mains/pin safety, #6 unmeasured PSRAM/memory/LittleFS,
+  #7 partial dependency advisory coverage.
+- `docs/known-issues.md` links each issue; `README.md` lists them.
+
+Publication is not runtime acceptance. The five hardware gates and the blocked
+upload remain exactly as described in sections 5 and 6 above.
+
